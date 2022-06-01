@@ -2,6 +2,7 @@
     &__group:not(:last-child) {
         margin-bottom: 2rem;
     }
+
     &__input {
         font-size: 1.5rem;
         font-family: inherit;
@@ -13,7 +14,11 @@
         border-bottom: 3px solid transparent;
         width: 90%;
         display: block;
-        transition: all 0.3s;
+        transition: all .3s;
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
 
         &:focus {
             outline: none;
@@ -28,13 +33,11 @@
         &::-webkit-input-placeholder {
             color: $color-grey-dark-2;
         }
-
     }
 
-    
-    
-    &__label{
-        font-size: 1.5rem;
+
+    &__label {
+        font-size: 1.2rem;
         font-weight: 700;
         margin-left: 2rem;
         margin-top: .7rem;
@@ -42,26 +45,34 @@
         transition: all .3s;
     }
 
-    &__input:placeholder-shown ~ &__label {
+    &__input:placeholder-shown + &__label {
         opacity: 0;
         visibility: hidden;
-        transform: translate(-4rem);
+        transform: translateY(-4rem);
     }
+
 
     &__radio-group {
         width: 49%;
         display: inline-block;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
     }
 
     &__radio-input {
         display: none;
     }
+    
     &__radio-label {
         font-size: $default-font-size;
         cursor: pointer;
         position: relative;
         padding-left: 4.5rem;
     }
+
     &__radio-button {
         height: 3rem;
         width: 3rem;
